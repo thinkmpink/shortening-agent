@@ -1,0 +1,4 @@
+.stack-work/
+shortening-agent.cabal
+*~
+*.lock

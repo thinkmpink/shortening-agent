@@ -1,0 +1,60 @@
+name:                shortening-agent
+version:             0.1.0.0
+github:              "thinkmpink/shortening-agent"
+license:             BSD3
+author:              "Chris Allen"
+maintainer:          "mpinkham3@gmail.com"
+copyright:           "Chris Allen 2017"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+synopsis:            URL Shortener
+category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/thinkmpink/shortening-agent#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bytestring
+- hedis
+- mtl
+- network-uri
+- random
+- scotty
+- semigroups
+- text
+- transformers
+
+library:
+  source-dirs: src
+
+executables:
+  shortening-agent-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - shortening-agent
+
+tests:
+  shortening-agent-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - shortening-agent
+    - hspec
+    - QuickCheck
